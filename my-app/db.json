@@ -1,39 +1,58 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "User 1",
-      "age": 24
+      "firstName": "sdad",
+      "lastName": "ADSad",
+      "userName": "ASdADSAD",
+      "userPassword": "asdsadasR#",
+      "userDOB": "2023-04-18T17:00:00.000Z",
+      "userGender": "male",
+      "id": 1
     },
     {
-      "id": "2",
-      "name": "User 2",
-      "age": 27
+      "firstName": "sdadasd",
+      "lastName": "ADSad",
+      "userName": "ASdADSAD",
+      "userPassword": "asdsadasR#",
+      "userDOB": "2023-04-18T17:00:00.000Z",
+      "userGender": "male",
+      "id": 2
     },
     {
-      "id": "3",
-      "name": "User 3",
-      "age": 30
+      "firstName": "sdadasd",
+      "lastName": "ADSad",
+      "userName": "ASdADSAD",
+      "userPassword": "asdsadasR#Ru",
+      "userDOB": "2023-04-18T17:00:00.000Z",
+      "userGender": "male",
+      "id": 3
+    },
+    {
+      "firstName": "sdadasd",
+      "lastName": "ADSad",
+      "userName": "ASdADSAD",
+      "userPassword": "asdsadasR#Ru12",
+      "userDOB": "2023-04-18T17:00:00.000Z",
+      "userGender": "male",
+      "id": 4
     },
     {
       "firstName": "Hieu",
-      "lastName": "Nguyen Huynh Trung",
-      "birthDay": "2002",
+      "lastName": "Huynh",
+      "userName": "123456#P2",
+      "userPassword": "123456#P2p",
+      "userDOB": "2023-04-01T17:00:00.000Z",
       "userGender": "male",
-      "userName": "Hieu",
-      "Password": "123456",
-      "phoneNumber": "0365478",
-      "id": "10"
+      "id": 5
     },
     {
-      "firstName": "Huong",
-      "lastName": "Nguyen Huynh Minh",
-      "birthDay": "2005",
-      "userGender": "female",
-      "userName": "minhhuong",
-      "Password": "123456",
-      "phoneNumber": "0123456789",
-      "id": "9413wm4"
+      "firstName": "Hieu",
+      "lastName": "Huynh",
+      "userName": "123456#P2",
+      "userPassword": "123456#P2p",
+      "userDOB": "2023-04-01T17:00:00.000Z",
+      "userGender": "male",
+      "id": 6
     }
   ]
 }

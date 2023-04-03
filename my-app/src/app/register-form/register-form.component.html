@@ -38,11 +38,11 @@
         </nav>
     </header>
 
-    <form [formGroup]="profileForm" #ngForm="ngForm" class="form-container">
+    <form [formGroup]="registerForm" #ngForm="ngForm" class="form-container">
         <mat-card>
             <mat-card-header>
                 <mat-card-title>
-                    Profile Information <span *ngIf="ngForm.submitted && !profileForm.valid" class="small-font"
+                    Register Information <span *ngIf="ngForm.submitted && !registerForm.valid" class="small-font"
                         [ngClass]="{'invalid': ngForm.submitted }" style="color: red; font-size: 14px;">*
                         Required</span>
                 </mat-card-title>
@@ -53,11 +53,11 @@
                         <mat-form-field class="full-width">
                             <input formControlName="firstName" matInput placeholder="First name" required minlength="2">
                             <mat-hint style="color: red; font-size: 14px;"
-                                *ngIf="profileForm.get('firstName').touched && profileForm.get('firstName').errors?.required">
+                                *ngIf="registerForm.get('firstName').touched && registerForm.get('firstName').errors?.required">
                                 *First Name is required
                             </mat-hint>
                             <mat-hint style="color: red; font-size: 14px;"
-                                *ngIf="profileForm.get('firstName').touched && profileForm.get('firstName').errors?.minlength">
+                                *ngIf="registerForm.get('firstName').touched && registerForm.get('firstName').errors?.minlength">
                                 *First Name must be at least 2 character
                             </mat-hint>
                         </mat-form-field>
@@ -66,26 +66,27 @@
                         <mat-form-field class="full-width">
                             <input formControlName="lastName" matInput placeholder="Last name" required minlength="2">
                             <mat-hint style="color: red; font-size: 14px;"
-                                *ngIf="profileForm.get('lastName').touched && profileForm.get('lastName').errors?.required">
+                                *ngIf="registerForm.get('lastName').touched && registerForm.get('lastName').errors?.required">
                                 *Last Name is required
                             </mat-hint>
                             <mat-hint style="color: red; font-size: 14px;"
-                                *ngIf="profileForm.get('lastName').touched && profileForm.get('lastName').errors?.minlength">
+                                *ngIf="registerForm.get('lastName').touched && registerForm.get('lastName').errors?.minlength">
                                 *Last Name must be at least 2 character
                             </mat-hint>
                         </mat-form-field>
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-sm-6">
                         <mat-form-field class="full-width">
                             <input formControlName="userName" matInput placeholder="Username" minlength="6">
                             <mat-hint style="color: red; font-size: 14px;"
-                                *ngIf="profileForm.get('userName').touched && profileForm.get('userName').errors?.required">
+                                *ngIf="registerForm.get('userName').touched && registerForm.get('userName').errors?.required">
                                 *Username is required
                             </mat-hint>
                             <mat-hint style="color: red; font-size: 14px;"
-                                *ngIf="profileForm.get('userName').touched && profileForm.get('userName').errors?.minlength">
+                                *ngIf="registerForm.get('userName').touched && registerForm.get('userName').errors?.minlength">
                                 *Username must be at least 6 character
                             </mat-hint>
                         </mat-form-field>
@@ -94,16 +95,13 @@
                         <mat-form-field class="full-width">
                             <input formControlName="userPassword" matInput placeholder="Password" minlength="8" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$">
                             <mat-hint style="color: red; font-size: 14px;"
-                                *ngIf="profileForm.get('userPassword').touched && profileForm.get('userPassword').errors?.required">
-                                *Password is required
-                            </mat-hint>
-                            <mat-hint style="color: red; font-size: 14px;"
-                                *ngIf="profileForm.get('userPassword').touched && profileForm.get('userPassword').errors?.pattern && profileForm.get('userPassword').errors?.minlength">
-                                Password must contain at least one number, one uppercase and a lowercase letter and at least 8 characters. Password cannot contain whitespace
+                                *ngIf="registerForm.get('userPassword').touched || registerForm.get('userPassword').errors?.pattern || registerForm.get('userPassword').errors?.minlength || registerForm.get('userPassword').errors?.required">
+                                *Password must contain at least one number, one uppercase and a lowercase letter and at least 8 characters. Password cannot contain whitespace
                             </mat-hint>
                         </mat-form-field>
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-md-6 top-padding">
                         <mat-form-field class="full-width" appearance="fill">
@@ -111,6 +109,16 @@
                             <input formControlName="userDOB" matInput [matDatepicker]="picker">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6 top-padding">
+                        <mat-form-field class="full-width">
+                            <input formControlName="phoneNumber" matInput placeholder="Phone number" minlength="10" type="text" >
+                            <mat-hint style="color: red; font-size: 14px;"
+                                *ngIf="registerForm.get('phoneNumber').touched && registerForm.get('phoneNumber').errors?.required">
+                                *Phone number is required
+                            </mat-hint>
+
                         </mat-form-field>
                     </div>
                 </div>
@@ -125,9 +133,11 @@
                 </div>
             </mat-card-content>
             <mat-card-actions>
-                <button (click)="saveForm()" mat-raised-button color="green">Save</button>
+                <button (click)="saveForm()" mat-raised-button>Save</button>
+               
             </mat-card-actions>
         </mat-card>
     </form>
+    <button (click)="deleteForm()" mat-raised-button>Delete</button>
 
 </body>

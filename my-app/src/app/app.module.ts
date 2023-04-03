@@ -23,6 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule} from '@angular/material/list';
+import { ProfileFormComponent } from './profile-form/profile-form.component';
 
 
 
@@ -31,7 +32,8 @@ import { MatListModule} from '@angular/material/list';
     AppComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    ProfileFormComponent
   ],
   imports: [
     BrowserModule,
