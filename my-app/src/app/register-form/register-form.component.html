@@ -1,0 +1,133 @@
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-auto px-lg-auto">
+                <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-link"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-link"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-link dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">All Products</a></li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Cart
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <form [formGroup]="profileForm" #ngForm="ngForm" class="form-container">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Profile Information <span *ngIf="ngForm.submitted && !profileForm.valid" class="small-font"
+                        [ngClass]="{'invalid': ngForm.submitted }" style="color: red; font-size: 14px;">*
+                        Required</span>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <input formControlName="firstName" matInput placeholder="First name" required minlength="2">
+                            <mat-hint style="color: red; font-size: 14px;"
+                                *ngIf="profileForm.get('firstName').touched && profileForm.get('firstName').errors?.required">
+                                *First Name is required
+                            </mat-hint>
+                            <mat-hint style="color: red; font-size: 14px;"
+                                *ngIf="profileForm.get('firstName').touched && profileForm.get('firstName').errors?.minlength">
+                                *First Name must be at least 2 character
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <input formControlName="lastName" matInput placeholder="Last name" required minlength="2">
+                            <mat-hint style="color: red; font-size: 14px;"
+                                *ngIf="profileForm.get('lastName').touched && profileForm.get('lastName').errors?.required">
+                                *Last Name is required
+                            </mat-hint>
+                            <mat-hint style="color: red; font-size: 14px;"
+                                *ngIf="profileForm.get('lastName').touched && profileForm.get('lastName').errors?.minlength">
+                                *Last Name must be at least 2 character
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <mat-form-field class="full-width">
+                            <input formControlName="userName" matInput placeholder="Username" minlength="6">
+                            <mat-hint style="color: red; font-size: 14px;"
+                                *ngIf="profileForm.get('userName').touched && profileForm.get('userName').errors?.required">
+                                *Username is required
+                            </mat-hint>
+                            <mat-hint style="color: red; font-size: 14px;"
+                                *ngIf="profileForm.get('userName').touched && profileForm.get('userName').errors?.minlength">
+                                *Username must be at least 6 character
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-6">
+                        <mat-form-field class="full-width">
+                            <input formControlName="userPassword" matInput placeholder="Password" minlength="8" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$">
+                            <mat-hint style="color: red; font-size: 14px;"
+                                *ngIf="profileForm.get('userPassword').touched && profileForm.get('userPassword').errors?.required">
+                                *Password is required
+                            </mat-hint>
+                            <mat-hint style="color: red; font-size: 14px;"
+                                *ngIf="profileForm.get('userPassword').touched && profileForm.get('userPassword').errors?.pattern && profileForm.get('userPassword').errors?.minlength">
+                                Password must contain at least one number, one uppercase and a lowercase letter and at least 8 characters. Password cannot contain whitespace
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 top-padding">
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Date of Birth</mat-label>
+                            <input formControlName="userDOB" matInput [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 top-padding">
+                        <mat-radio-group [ngClass]="{'invalid': ngForm.submitted}" formControlName="userGender"
+                            class="margin-left">
+                            <mat-radio-button value="male" color="primary"> Male </mat-radio-button>
+                            <mat-radio-button value="female" color="accent"> Female </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button (click)="saveForm()" mat-raised-button color="green">Save</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+
+</body>

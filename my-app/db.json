@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "User 1",
+      "age": 24
+    },
+    {
+      "id": "2",
+      "name": "User 2",
+      "age": 27
+    },
+    {
+      "id": "3",
+      "name": "User 3",
+      "age": 30
+    },
+    {
+      "firstName": "Hieu",
+      "lastName": "Nguyen Huynh Trung",
+      "birthDay": "2002",
+      "userGender": "male",
+      "userName": "Hieu",
+      "Password": "123456",
+      "phoneNumber": "0365478",
+      "id": "10"
+    },
+    {
+      "firstName": "Huong",
+      "lastName": "Nguyen Huynh Minh",
+      "birthDay": "2005",
+      "userGender": "female",
+      "userName": "minhhuong",
+      "Password": "123456",
+      "phoneNumber": "0123456789",
+      "id": "9413wm4"
+    }
+  ]
+}
